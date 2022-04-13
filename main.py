@@ -4,19 +4,10 @@ list of todonts
 time created, description and a checkbox of whether its done or not 
 '''
 
-from datetime import datetime
-from pydantic import BaseModel
 
 from fastapi import FastAPI
 app = FastAPI()
 
-class TodontInput(BaseModel):
-    description: str
-
-class Todont(TodontInput):
-    id: int
-    created_ts: datetime
-    done: bool = False
 
 db = [
     Todont(id=0, created_ts=datetime.now(), description='Buy milk'),

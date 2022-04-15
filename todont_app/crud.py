@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.orm import Session
 
 from . import models, schemas
@@ -15,13 +16,13 @@ def set_done(db: Session, todont_id: int):
     todont = get_todont(db, todont_id)
     if todont:
         todont.done = True
+        db.commit()
     return todont
 
 # create a todont
 def create_todont(db: Session, todont: schemas.ToDontCreate):
     db_todont = models.ToDont(
         description=todont.description,
-        done=False
     )
     db.add(db_todont)
     db.commit()

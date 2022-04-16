@@ -5,3 +5,5 @@ pip3 install fastapi["all"]
 uvicorn main:app --reload
 python-multipart
 jinja2
+
+https://alexbsoft.github.io/win95.css/
